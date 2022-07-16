@@ -8,15 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { WeathercardComponent } from './components/weathercard/weathercard.component';
-
 import { FooterComponent } from './components/footer/footer.component';
-
 import { HeaderComponent } from './components/header/header.component';
-
 import { SearchComponent } from './components/search/search.component';
-
 import { SearchpageComponent } from './pages/searchpage/searchpage.component';
-
 import { AppComponent } from './app.component';
 
 @NgModule({

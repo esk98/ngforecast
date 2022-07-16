@@ -1,0 +1,30 @@
+mat-card { 
+  width: 40vw;
+  margin: 0 auto;
+}
+mat-card > mat-card-header {
+  justify-content: start;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mat-card-rigth-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vh;
+}
+
+.mat-card-rigth-box > mat-card-subtitle {
+  margin: 0 0 ;
+  text-align: left;
+  align-items: center;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}

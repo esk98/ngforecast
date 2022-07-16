@@ -1,0 +1,9 @@
+mat-toolbar {
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  background: none;
+}
+mat-toolbar > mat-card-title {
+  margin: 0 0;
+}

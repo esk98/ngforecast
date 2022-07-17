@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
+import { FormControl, Validators } from '@angular/forms';
+import { response } from 'express';
+import { debounceTime, distinctUntilChanged, filter, Observable, tap } from 'rxjs';
 import { InputCatchService } from './inputcatch.service';
 @Component({
   selector: 'app-search',
@@ -9,17 +10,16 @@ import { InputCatchService } from './inputcatch.service';
 })
 export class SearchComponent implements OnInit {
   inputFormControl = new FormControl<string>('');
-  // autoCompleteNames: string [];
+  autoCompleteNames!: Observable<string[]>;
   constructor(private _catchInputVal: InputCatchService) { }
 
   ngOnInit() {
-    // this.inputFormControl.valueChanges.pipe(
-    //   filter((value: string) => {
-    //     return value !== null && value.length > 3;
-    //   }),
-    //   distinctUntilChanged(),
-    //   debounceTime(500)
-    // ).subscribe((res: string) => this._catchInputVal.getInputValue(res))
+    this.inputFormControl.valueChanges.pipe(
+      filter((value: string | null) => value !== null),
+      distinctUntilChanged(),
+      debounceTime(500),
+    ).subscribe((value: any) => {
+      this.autoCompleteNames = this._catchInputVal.getAutoCompleteArray(value);
+    });
   }
-
 }

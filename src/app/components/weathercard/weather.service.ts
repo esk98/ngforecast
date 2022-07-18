@@ -7,7 +7,7 @@ import { ApiService } from '../../shared/api.service';
 export class WeatherService {
   constructor(private _api: ApiService) { }
 
-  getWeather(city: string): Observable<any> {
+  getWeatherFromApi(city: string): Observable<any> {
     return this._api.getWeather(city).pipe(
       map((response: any) => ({
         location: response.location.name,

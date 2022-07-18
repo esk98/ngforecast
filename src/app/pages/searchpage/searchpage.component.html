@@ -1,2 +1,2 @@
-<app-search></app-search>
-<app-weathercard></app-weathercard>
+<app-search (newSearchEvent)="this.addValue($event)"></app-search>
+<app-weathercard [city]="value"></app-weathercard>

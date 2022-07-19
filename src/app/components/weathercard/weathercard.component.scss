@@ -1,9 +1,9 @@
-mat-card { 
+mat-card {
   width: 40vw;
   margin: 0 auto;
 }
 mat-card > mat-card-header {
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 mat-card-content {
@@ -17,7 +17,22 @@ mat-card-content {
   grid-template-columns: 1fr 1fr;
   gap: 1vh;
 }
+.mat-card-left-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: flex-end;
+}
 
+.mat-card-left-box * {
+  margin: 0 0 ;
+  text-align: left;
+  align-items: center;
+}
+.mat-card-left-box > img {
+  width: 80px;
+  height: 80px;
+}
 .mat-card-rigth-box > mat-card-subtitle {
   margin: 0 0 ;
   text-align: left;
@@ -27,4 +42,10 @@ mat-card-content {
 mat-card-actions {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width:1024px) {
+  mat-card {
+    width: 80vw;
+  }
 }

@@ -1,25 +1,26 @@
 <mat-card>
-<mat-card-header>
-  <mat-card-title>London</mat-card-title>
-</mat-card-header>
-<mat-card-content>
-  <div>
-    <img src="assets/cloudy.svg">
-    <mat-card-title>18°C</mat-card-title>
-  </div>
-  <div class="mat-card-rigth-box">
-    <mat-card-subtitle>Feels like</mat-card-subtitle>
-    <mat-card-subtitle>18°C</mat-card-subtitle>
-    <mat-card-subtitle>Feels like</mat-card-subtitle>
-    <mat-card-subtitle>18°C</mat-card-subtitle>
-    <mat-card-subtitle>Feels like</mat-card-subtitle>
-    <mat-card-subtitle>18°C</mat-card-subtitle>
-    <mat-card-subtitle>Feels like</mat-card-subtitle>
-    <mat-card-subtitle>18°C</mat-card-subtitle>
-  </div>
-</mat-card-content>
-<mat-card-actions>
-  <button mat-raised-button color="accent" >Details</button>
-  <button mat-raised-button color="accent" >Add to list</button>
-</mat-card-actions>
+  <mat-card-header>
+    <mat-card-title>{{ weather.location }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-card-left-box">
+      <img src="{{ weather.condition.icon }}" />
+      <mat-card-title>{{ weather.temperature }}</mat-card-title>
+      <mat-card-subtitle>{{ weather.condition.text }}</mat-card-subtitle>
+    </div>
+    <div class="mat-card-rigth-box">
+      <mat-card-subtitle>Feels like</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.feelslike }}</mat-card-subtitle>
+      <mat-card-subtitle>Humidity</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.humidity }}</mat-card-subtitle>
+      <mat-card-subtitle>Wind</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.wind }}</mat-card-subtitle>
+      <mat-card-subtitle>UV</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.uv }}</mat-card-subtitle>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent">Details</button>
+    <button mat-raised-button color="accent">Add to list</button>
+  </mat-card-actions>
 </mat-card>

@@ -1,7 +1,16 @@
-.search-btn {
-  height: 34px;
+mat-form-field {
+  width: 36vw;
 }
 
-mat-form-field {
-  width: 65vw;
+section {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  mat-form-field {
+    width: 75vw;
+  }
 }

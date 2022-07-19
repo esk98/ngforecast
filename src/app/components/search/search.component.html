@@ -1,9 +1,25 @@
-<form>
-  <mat-form-field color="accent" appearance="legacy">
-    <input 
-    matInput
-    [formControl]="inputFormControl" 
-    >
-  </mat-form-field>
-  <button mat-raised-button color="accent" class="search-btn">Search</button>
-</form>
+<section>
+  <form>
+    <mat-form-field color="accent" appearance="legacy">
+      <input
+        matInput
+        [formControl]="inputFormControl"
+        [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let city of autoCompleteNames$ | async"
+          [value]="city">
+          {{ city }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <button
+    type="submit"
+    mat-raised-button
+    color="accent"
+    class="search-btn"
+    (click)="this.setFindCity(this.inputFormControl.value)">
+    Search
+  </button>
+</section>

@@ -17,17 +17,17 @@ import { InputCatchService } from '../../shared/inputcatch.service';
 export class SearchComponent implements OnInit {
   @Output() newSearchEvent = new EventEmitter<string>();
   inputFormControl = new FormControl<string>('');
-  autoCompleteNames!: Observable<string[]>;
+  autoCompleteNames$!: Observable<string[]>;
   constructor(public _catchInputVal: InputCatchService) {}
   ngOnInit() {
     this.inputFormControl.valueChanges
       .pipe(
-        filter((value: string | null) => value !== null),
+        filter((value: string | null) => value !== null && value?.length > 2),
         distinctUntilChanged(),
         debounceTime(500)
       )
       .subscribe((value: any) => {
-        this.autoCompleteNames =
+        this.autoCompleteNames$ =
           this._catchInputVal.getAutoCompleteArray(value);
       });
   }

@@ -1,5 +1,4 @@
 mat-card {
-  width: 40vw;
   margin: 0 auto;
 }
 mat-card > mat-card-header {
@@ -42,10 +41,4 @@ mat-card-content {
 mat-card-actions {
   display: flex;
   justify-content: center;
-}
-
-@media screen and (max-width:1024px) {
-  mat-card {
-    width: 80vw;
-  }
 }

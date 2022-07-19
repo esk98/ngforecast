@@ -1,0 +1,33 @@
+.details-wrapper {
+    display: grid;
+    grid-template-columns: 27vw 70vw;
+    // grid-template-rows: 76vh;
+    gap: 2vh;
+
+    .left-details-box {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-details-box {
+        display: grid;
+        grid-template-rows: 30vh 44vh;
+        gap: 2vh;
+    }
+    .right-details-box__header {
+        display: flex;
+    }
+
+    .right-details-box__footer {
+        display: flex;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .details-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        width: 90vw;
+        height: 76vh;
+    }
+}

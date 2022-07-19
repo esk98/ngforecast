@@ -2,10 +2,10 @@ import { Injectable, Input } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { ApiService } from '../../shared/api.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService) {}
 
   getWeatherFromApi(city: string): Observable<any> {
     return this._api.getWeather(city).pipe(

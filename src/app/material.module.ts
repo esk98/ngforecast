@@ -27,7 +27,7 @@ const MaterialComponents = [
   MatTooltipModule,
   MatTabsModule,
   MatGridListModule,
-  MatTableModule
+  MatTableModule,
 ];
 
 @NgModule({

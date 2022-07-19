@@ -1,22 +1,40 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input, SimpleChange } from '@angular/core';
-import { Observable } from 'rxjs';
+import {
+    Component,
+    OnChanges,
+    SimpleChanges,
+    Input,
+    OnDestroy,
+} from '@angular/core';
 import { WeatherService } from './weather.service';
+import { currentWeather } from '../../shared/models/currentWeather';
 @Component({
-  selector: 'app-weathercard',
-  templateUrl: './weathercard.component.html',
-  styleUrls: ['./weathercard.component.scss']
+    selector: 'app-weathercard',
+    templateUrl: './weathercard.component.html',
+    styleUrls: ['./weathercard.component.scss'],
 })
-export class WeathercardComponent implements OnInit, OnChanges {
-  // to do: add eslint, remove logic from component to service
-  $weatherData!: Observable<any>;
-  @Input() city!: string;
-  constructor(public _getData: WeatherService) { }
-  ngOnChanges(changes: SimpleChanges) {
-    if(!changes['city'].isFirstChange())
-    this.$weatherData = this._getData.getWeatherFromApi(changes['city'].currentValue)
-  }
+export class WeathercardComponent implements OnChanges, OnDestroy {
+    // to do: add eslint, remove logic from component to service
+    weather!: currentWeather;
+    subscription: any;
+    @Input() city!: string;
 
-  ngOnInit() {
-  }
+    constructor(public _getData: WeatherService) {
+        console.log('constructor');
+        this.subscription = this._getData.weatherData$.subscribe(
+            v => (this.weather = v)
+        );
+    }
 
+    ngOnChanges(changes: SimpleChanges): void {
+        if (
+            changes['city'].currentValue !== changes['city'].previousValue &&
+            changes['city'].currentValue !== ''
+        )
+            this._getData.getWeatherFromApi(changes['city'].currentValue);
+        console.log(changes);
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
 }

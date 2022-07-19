@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
-import { RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,25 +13,27 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchpageComponent } from './pages/searchpage/searchpage.component';
 import { AppComponent } from './app.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
-  imports: [ 
-    BrowserAnimationsModule, 
-    BrowserModule, 
-    ReactiveFormsModule, 
-    MaterialModule, 
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule 
-  ],
-  declarations: [ 
-    AppComponent,
-    SearchComponent, 
-    HeaderComponent, 
-    FooterComponent, 
-    WeathercardComponent,
-    SearchpageComponent
-  ],
-  bootstrap:    [ AppComponent ]
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
+    ],
+    declarations: [
+        AppComponent,
+        SearchComponent,
+        HeaderComponent,
+        FooterComponent,
+        WeathercardComponent,
+        SearchpageComponent,
+        DetailsComponent,
+    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

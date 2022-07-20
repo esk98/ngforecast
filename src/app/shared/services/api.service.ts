@@ -21,4 +21,10 @@ export class ApiService {
         `&aqi=yes`
     );
   }
+
+  getDailyWeather(lon: number, lat: number): Observable<any> {
+    return this._http.get(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=f92efd7aedf0c556c1b9edf282678ae6`
+    )
+  }
 }

@@ -5,7 +5,7 @@ import { ApiService } from './api.service';
 @Injectable({
     providedIn: 'root',
 })
-export class InputCatchService {
+export class AutoComplete {
     constructor(private _api: ApiService) {}
 
     getAutoCompleteArray(value: string): Observable<Array<string>> {

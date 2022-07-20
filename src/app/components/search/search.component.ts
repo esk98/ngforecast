@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, Observable } from 'rxjs';
-import { InputCatchService } from '../../shared/inputcatch.service';
+import { AutoComplete } from '../../shared/services/autocomplete.service';
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
     inputFormControl = new FormControl<string>('');
     autoCompleteNames$!: Observable<string[]>;
-    constructor(public _catchInputVal: InputCatchService) {}
+    constructor(public _catchInputVal: AutoComplete) {}
     ngOnInit() {
         this.inputFormControl.valueChanges
             .pipe(

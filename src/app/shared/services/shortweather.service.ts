@@ -1,21 +1,28 @@
 import { Injectable, Input } from '@angular/core';
 import { Observable, map, BehaviorSubject } from 'rxjs';
-import { ApiService } from '../../shared/api.service';
-import { currentWeather } from '../../shared/models/currentWeather';
+import { ApiService } from './api.service';
+import { StoreService } from './store.service';
+import { CurrentWeather } from '../models/currentWeather';
 @Injectable({
     providedIn: 'root',
 })
-export class WeatherService {
+export class ShortWeatherService {
     constructor(private _api: ApiService) {
-        console.log(this.weatherData$);
+        this.shortWeather$.subscribe(res => { 
+            this.city$.next(res.location)
+            console.log(this.city$)
+        })
     }
-    city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
-    weatherData$: BehaviorSubject<currentWeather> =
+    
+city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
+
+shortWeather$: BehaviorSubject<currentWeather> =
         new BehaviorSubject<currentWeather>({
             location: 'London',
             condition: {
-                icon: '',
+                icon: 'assets/a-cloudy.svg',
                 text: 'Sunny',
+                code: 1002,
             },
             temperature: 18,
             wind: 2,
@@ -25,7 +32,7 @@ export class WeatherService {
             uv: 1,
         });
 
-    getWeatherFromApi(city: string) {
+    getShortWeather(city: string) {
         this._api
             .getWeather(city)
             .pipe(
@@ -34,6 +41,7 @@ export class WeatherService {
                     condition: {
                         icon: response.current.condition.icon,
                         text: response.current.condition.text,
+                        code: response.current.condition.code,
                     },
                     temperature: response.current.temp_c,
                     wind: response.current.wind_kph,
@@ -43,8 +51,8 @@ export class WeatherService {
                     uv: response.current.uv,
                 }))
             )
-            .subscribe((response: any) => {
-                this.weatherData$.next(response);
+            .subscribe((response: currentWeather) => {
+                this.shortWeather$.next(response);
             });
     }
 }

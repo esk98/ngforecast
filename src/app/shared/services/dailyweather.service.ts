@@ -2,9 +2,15 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DailyweatherService {
 
-  constructor() { }
+  constructor(public _store: StoreService, public _api: ApiService) { }
+  
+  getDailyWeather(lat: number, lon: number) { 
+    
+  }
 
 }

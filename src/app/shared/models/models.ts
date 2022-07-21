@@ -1,6 +1,3 @@
-export interface city {
-  city: string;
-},
 export interface shortWeather {
   location: string;
   icon: string;
@@ -9,12 +6,12 @@ export interface shortWeather {
   wind: number;
   humidity: number;
   feelslike: number;
-},
+}
 export interface dailyWeather {
-  data: number;
-  icon: string;
-  temperature: number;
-},
+  data: number[];
+  icon: string[];
+  temperature: number[];
+}
 export interface todayHighlights {
   pressure: number;
   clouds: number;
@@ -23,4 +20,9 @@ export interface todayHighlights {
   sunset: number;
   visibility: number;
   dewPoint: number;
+}
+
+export interface params {
+  lat: number,
+  lon: number,
 }

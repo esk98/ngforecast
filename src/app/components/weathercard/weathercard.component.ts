@@ -5,8 +5,10 @@ import {
     Input,
     OnDestroy,
 } from '@angular/core';
+import { StoreService } from '../../shared/services/store.service';
 import { ShortWeatherService } from '../../shared/services/shortweather.service';
-import { CurrentWeather } from '../../shared/models/currentweather';
+import { shortWeather } from '../../shared/models/models';
+import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-weathercard',
     templateUrl: './weathercard.component.html',
@@ -14,12 +16,12 @@ import { CurrentWeather } from '../../shared/models/currentweather';
 })
 export class WeathercardComponent implements OnChanges, OnDestroy {
     // to do: add eslint, remove logic from component to service
-    weather!: CurrentWeather;
+    weather!: shortWeather;
     subscription: any;
     @Input() city!: string;
 
-    constructor(public _getData: ShortWeatherService) {
-        this.subscription = this._getData.shortWeather$.subscribe(
+    constructor(public _getData: ShortWeatherService, public _store: StoreService) {
+        this.subscription = this._store.shortWeather$.subscribe(
             v => (this.weather = v)
         );
     }

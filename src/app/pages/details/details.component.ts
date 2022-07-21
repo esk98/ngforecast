@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-
+import { DailyweatherService } from '../../shared/services/dailyweather.service';
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent {
-    constructor() {}
+    constructor(public _get: DailyweatherService) {
+        this._get.getDailyWeather()
+    }
 }

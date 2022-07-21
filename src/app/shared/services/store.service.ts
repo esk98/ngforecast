@@ -6,7 +6,7 @@ import {
   todayHighlights,
   params
 } from '../models/models';
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class StoreService {
 
   constructor() { }

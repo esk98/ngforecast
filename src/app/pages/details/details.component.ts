@@ -8,7 +8,7 @@ import { LocationService } from '../../shared/services/location.service';
 })
 export class DetailsComponent {
     constructor(public _get: DailyweatherService, public _location: LocationService) {
-        this._location.getParams('Moscow')
+        this._location.getParams('Krasnoyarsk');
         this._get.getDailyWeather()
     }
 }

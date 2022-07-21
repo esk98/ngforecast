@@ -8,7 +8,7 @@ export interface shortWeather {
   feelslike: number;
 }
 export interface dailyWeather {
-  data: number[];
+  date: number[];
   icon: string[];
   temperature: number[];
 }

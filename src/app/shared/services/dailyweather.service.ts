@@ -8,12 +8,13 @@ import { StoreService } from './store.service';
 })
 export class DailyweatherService {
 
-  constructor(public _store: StoreService, public _api: ApiService) { this._store.params$.subscribe(
-    params => {
-      this.lon = params.lon,
-      this.lat = params.lat
-    }
-  )}
+  constructor(public _store: StoreService, public _api: ApiService) { 
+    this._store.params$.subscribe(
+      params => {
+        this.lon = params.lon,
+        this.lat = params.lat
+      })
+  }
   lon: number;
   lat: number;
   getDailyWeather() {

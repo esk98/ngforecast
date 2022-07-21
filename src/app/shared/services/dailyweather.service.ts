@@ -15,8 +15,7 @@ export class DailyweatherService {
         this.lat = params.lat
       })
   }
-  lon: number;
-  lat: number;
+
   getDailyWeather() {
     this._api
       .getDailyWeather(this.lon, this.lat)

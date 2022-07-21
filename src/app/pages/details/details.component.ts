@@ -7,7 +7,8 @@ import { LocationService } from '../../shared/services/location.service';
     styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent {
-    constructor(public _get: DailyweatherService) {
+    constructor(public _get: DailyweatherService, public _location: LocationService) {
+        this._location.getParams('Moscow')
         this._get.getDailyWeather()
     }
 }

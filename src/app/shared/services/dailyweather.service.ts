@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';
 
@@ -8,11 +8,17 @@ import { StoreService } from './store.service';
 })
 export class DailyweatherService {
 
-  constructor(public _store: StoreService, public _api: ApiService) { }
-
+  constructor(public _store: StoreService, public _api: ApiService) { this._store.params$.subscribe(
+    params => {
+      this.lon = params.lon,
+      this.lat = params.lat
+    }
+  )}
+  lon: number;
+  lat: number;
   getDailyWeather() {
     this._api
-      .getDailyWeather(this._store.params$.getValue().lon, this._store.params$.getValue().lat)
+      .getDailyWeather(this.lon, this.lat)
         .pipe(
           
         )

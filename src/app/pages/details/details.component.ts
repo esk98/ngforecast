@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DailyweatherService } from '../../shared/services/dailyweather.service';
+import { LocationService } from '../../shared/services/location.service'; 
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',

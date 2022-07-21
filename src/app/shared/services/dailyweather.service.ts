@@ -16,7 +16,7 @@ export class DailyweatherService {
         .pipe(
           
         )
-        .subscribe(response => console.log)
+        .subscribe(response => console.log(response))
   }
 
 }

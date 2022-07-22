@@ -14,7 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchpageComponent } from './pages/searchpage/searchpage.component';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './pages/details/details.component';
-
+import { DailyweatherComponent } from './components/dailyweather/dailyweather.component';
 @NgModule({
     imports: [
         BrowserAnimationsModule,
@@ -31,6 +31,7 @@ import { DetailsComponent } from './pages/details/details.component';
         HeaderComponent,
         FooterComponent,
         WeathercardComponent,
+        DailyweatherComponent,
         SearchpageComponent,
         DetailsComponent,
     ],

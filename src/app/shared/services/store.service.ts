@@ -23,17 +23,8 @@ export class StoreService {
             feelslike: 23,
         });
 
-    dailyWeather$: BehaviorSubject<dailyWeather> =
-        new BehaviorSubject<dailyWeather>({
-            date: ['7/21/2022', '7/22/2022'],
-            icon: [
-                'assets/day.svg',
-                'assets/a-cloudy.svg',
-                'assets/day.svg',
-                'assets/a-cloudy.svg',
-            ],
-            temperature: [18, 23, 43, 53],
-        });
+    dailyWeather$: BehaviorSubject<Object[]> =
+        new BehaviorSubject<Object[]>([{}]);
 
     todayHighlights$: BehaviorSubject<todayHighlights> =
         new BehaviorSubject<todayHighlights>({

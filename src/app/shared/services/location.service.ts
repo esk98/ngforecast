@@ -20,6 +20,7 @@ export class LocationService {
                 }))
             )
             .subscribe((params: params) => {
+                console.log(params)
                 this._store.params$.next(params);
             });
     }

@@ -22,23 +22,25 @@ export class DailyweatherService {
             .getDailyWeather(this.lon, this.lat)
             .pipe(
                 tap(res => console.log(res)),
-                map((response: any) => ({
-                    date: response.daily.map((element: any) => {
-                        return new Date(
-                            element['dt'] * 1000
-                        ).toLocaleDateString('ru-RU');
-                    }),
-                    icon: response.daily.map((element: any) => {
-                        return element['weather'][0]['main'].toLowerCase();
-                    }),
-                    temperature: response.daily.map((element: any) => {
-                        return element['temp']['eve'];
-                    }),
-                }))
+                map((response: any) => response.daily.map((element: any) => {
+                element.dt, element.weather[0].main, element.temp.eve
+                })
+              )
             )
-            .subscribe((response: dailyWeather) => {
+            .subscribe((response: any) => {
                 console.log(response);
-                this._store.dailyWeather$.next(response);
+
             });
     }
 }
+// response.daily.map((element: any) => {
+//   return new Date(
+//       element['dt'] * 1000
+//   ).toLocaleDateString('ru-RU');
+// }),
+// response.daily.map((element: any) => {
+//   return element['weather'][0]['main'].toLowerCase();
+// }),
+// response.daily.map((element: any) => {
+//   return element['temp']['eve'];
+// }),

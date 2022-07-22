@@ -11,7 +11,6 @@ export class DetailsComponent {
         public _get: DailyweatherService,
         public _location: LocationService
     ) {
-        this._location.getParams('london');
         this._get.getDailyWeather();
     }
 }

@@ -24,7 +24,7 @@ export class StoreService {
         });
 
     dailyWeather$: BehaviorSubject<Object[]> =
-        new BehaviorSubject<Object[]>([{date: '22.07.2022', icon: 'rain', temperature: 293.93}]);
+        new BehaviorSubject<Object[]>([{}]);
 
     todayHighlights$: BehaviorSubject<todayHighlights> =
         new BehaviorSubject<todayHighlights>({

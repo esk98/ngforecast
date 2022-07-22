@@ -1,11 +1,11 @@
-.details-week-grid {
+.daily-week-grid {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .details-week-weather {
+  .daily-week-weather {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-between;
 
       .day-card {
@@ -13,9 +13,9 @@
           flex-direction: column;
           justify-content: center;
           width: 80px;
-          height: 108px;
+          height: 100px;
           padding: 0;
-          margin: 0;
+          margin: 0 0 4px 0;
 
           * {
               text-align: center;

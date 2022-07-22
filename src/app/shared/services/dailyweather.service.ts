@@ -22,7 +22,7 @@ export class DailyweatherService {
             .getDailyWeather(this.lon, this.lat)
             .pipe(
                 map((response: any) => response.daily.map((el: any) => ({
-                  date: new Date(el.dt * 1000).toLocaleDateString('ru-RU'), 
+                  date: new Date(el.dt * 1000), 
                   icon: el.weather[0].main.toLowerCase(), 
                   temperature: el.temp.eve
                 }))

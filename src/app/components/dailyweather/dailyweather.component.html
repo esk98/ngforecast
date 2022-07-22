@@ -3,11 +3,11 @@
       <mat-card-title>Week</mat-card-title>
   </div>
   <div class="details-week-weather">
-      <mat-card class="day-card" *ngFor="let d of dailyWeather">
-          <mat-card-subtitle></mat-card-subtitle>
+      <mat-card class="day-card" *ngFor="let day of dailyWeather">
+          <mat-card-subtitle>{{day.date}}</mat-card-subtitle>
           <mat-card-content>
-              <img src="assets/day.svg" />
-              <mat-card-subtitle></mat-card-subtitle>
+              <img src="assets/{{day.icon}}.svg" />
+              <mat-card-subtitle>{{day.temperature}}</mat-card-subtitle>
           </mat-card-content>
       </mat-card>
   </div>

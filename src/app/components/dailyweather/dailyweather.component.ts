@@ -14,7 +14,7 @@ constructor(public _get: DailyweatherService, public _store: StoreService, publi
   ngOnInit() {
     this._location.getParams('london')
     this._get.getDailyWeather();
-    this._store.dailyWeather$.subscribe(res => console.log(res))
+    this._store.dailyWeather$.subscribe(res => this.dailyWeather = res)
   }
 
 }

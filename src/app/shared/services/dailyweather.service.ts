@@ -21,15 +21,16 @@ export class DailyweatherService {
         this._api
             .getDailyWeather(this.lon, this.lat)
             .pipe(
-                map((response: any) => response.daily.map((el:any) => ({
+                map((response: any) => response.daily.map((el: any) => ({
                   date: new Date(el.dt * 1000).toLocaleDateString('ru-RU'), 
                   icon: el.weather[0].main.toLowerCase(), 
                   temperature: el.temp.eve
                 }))
               )
             )
-            .subscribe((response: any) => {
+            .subscribe((response: Object[]) => {
                 console.log(response);
+                this._store.dailyWeather$.next(response)
 
             });
     }

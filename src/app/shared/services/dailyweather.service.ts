@@ -21,10 +21,11 @@ export class DailyweatherService {
         this._api
             .getDailyWeather(this.lon, this.lat)
             .pipe(
-                tap(res => console.log(res)),
-                map((response: any) => response.daily.map((element: any) => {
-                element.dt, element.weather[0].main, element.temp.eve
-                })
+                map((response: any) => response.daily.map((el:any) => ({
+                  date: new Date(el.dt * 1000).toLocaleDateString('ru-RU'), 
+                  icon: el.weather[0].main.toLowerCase(), 
+                  temperature: el.temp.eve
+                }))
               )
             )
             .subscribe((response: any) => {
@@ -33,6 +34,7 @@ export class DailyweatherService {
             });
     }
 }
+// date: element.dt, icon: element.weather[0].main, temp: element.temp.eve
 // response.daily.map((element: any) => {
 //   return new Date(
 //       element['dt'] * 1000

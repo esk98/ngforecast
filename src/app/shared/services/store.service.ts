@@ -15,7 +15,7 @@ export class StoreService {
     shortWeather$: BehaviorSubject<shortWeather> =
         new BehaviorSubject<shortWeather>({
             location: 'London',
-            icon: 'assets/a-cloudy.svg',
+            icon: 'assets/clouds.svg',
             condition: 'Sunny',
             temperature: 18,
             wind: 2,
@@ -23,8 +23,9 @@ export class StoreService {
             feelslike: 23,
         });
 
-    dailyWeather$: BehaviorSubject<Object[]> =
-        new BehaviorSubject<Object[]>([{}]);
+    dailyWeather$: BehaviorSubject<Object[]> = new BehaviorSubject<Object[]>([
+        {},
+    ]);
 
     todayHighlights$: BehaviorSubject<todayHighlights> =
         new BehaviorSubject<todayHighlights>({

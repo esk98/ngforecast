@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, Observable } from 'rxjs';
 import { AutoComplete } from '../../shared/services/autocomplete.service';
 import { LocationService } from '../../shared/services/location.service';
+import { DailyweatherService } from '../../shared/services/dailyweather.service';
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
@@ -13,7 +14,7 @@ export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
     inputFormControl = new FormControl<string>('');
     autoCompleteNames$!: Observable<string[]>;
-    constructor(public _catchInputVal: AutoComplete, public _location: LocationService) {}
+    constructor(public _catchInputVal: AutoComplete, public _location: LocationService, public _get: DailyweatherService,) {}
     ngOnInit() {
         this.inputFormControl.valueChanges
             .pipe(
@@ -32,6 +33,7 @@ export class SearchComponent implements OnInit {
     setFindCity(input: any) {
         this.newSearchEvent.emit(input);
         this.setLocationToStore(input);
+        this._get.getDailyWeather();
     }
 
     setLocationToStore(input: any) {

@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 export class AutoComplete {
     constructor(private _api: ApiService) {}
 
-    getAutoCompleteArray(value: string): Observable<Array<string>> {
+    getAutoCompleteArray(value: string): Observable<string[]> {
         return of(value).pipe(
             switchMap((value: string) => this._api.getAutoComplete(value)),
             map((response: Observable<any>) => {

@@ -32,8 +32,6 @@ export class SearchComponent implements OnInit {
     }
     setFindCity(input: any) {
         this.newSearchEvent.emit(input);
-        this.setLocationToStore(input);
-        this._get.getDailyWeather();
     }
 
     setLocationToStore(input: any) {

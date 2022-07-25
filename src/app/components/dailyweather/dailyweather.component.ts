@@ -13,8 +13,6 @@ export class DailyweatherComponent {
         public _store: StoreService,
         public _location: LocationService
     ) {
-        this._location.getParams('london');
-        this._get.getDailyWeather();
         this._store.dailyWeather$.subscribe(res => (this.dailyWeather = res));
     }
     dailyWeather: any;

@@ -37,8 +37,4 @@ export class SearchComponent implements OnInit {
     setFindCity(input: any) {
         this.newSearchEvent.emit(input);
     }
-
-    setLocationToStore(input: any) {
-        this._location.getParams(input);
-    }
 }

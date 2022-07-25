@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { DailyweatherService } from '../../shared/services/dailyweather.service';
-import { LocationService } from '../../shared/services/location.service'; 
->>>>>>> stackblitz
+import { LocationService } from '../../shared/services/location.service';
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent {
-    constructor(public _get: DailyweatherService, public _location: LocationService) {
+    constructor(
+        public _get: DailyweatherService,
+        public _location: LocationService
+    ) {
         this._location.getParams('Krasnoyarsk');
-        this._get.getDailyWeather()
+        this._get.getDailyWeather();
     }
 }

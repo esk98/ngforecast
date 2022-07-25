@@ -20,10 +20,14 @@ export class WeathercardComponent implements OnChanges, OnDestroy {
     subscription: any;
     @Input() city!: string;
 
+<<<<<<< HEAD
     constructor(
         public _getData: ShortWeatherService,
         public _store: StoreService
     ) {
+=======
+    constructor(public _getData: ShortWeatherService, public _store: StoreService) {
+>>>>>>> stackblitz
         this.subscription = this._store.shortWeather$.subscribe(
             v => (this.weather = v)
         );

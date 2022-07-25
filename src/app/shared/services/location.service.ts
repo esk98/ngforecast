@@ -10,6 +10,7 @@ import { StoreService } from './store.service';
 export class LocationService {
     constructor(private _store: StoreService, private _api: ApiService) {}
 
+<<<<<<< HEAD
     getParams(city: string) {
         this._api
             .getLocationParams(city)
@@ -25,3 +26,20 @@ export class LocationService {
             });
     }
 }
+=======
+  constructor(private _store: StoreService, private _api: ApiService) {}
+  
+  getParams(city: string) {
+    this._api.getLocationParams(city).pipe(
+      map((response: any) => ({
+          lat: response[0].lat,
+          lon: response[0].lon
+        })
+      )
+    ).subscribe((params: params) => {
+        this._store.params$.next(params)
+    })
+  };
+
+}
+>>>>>>> stackblitz

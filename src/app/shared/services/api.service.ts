@@ -7,12 +7,28 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ApiService {
     constructor(private _http: HttpClient) {}
 
+<<<<<<< HEAD
     getAutoComplete(input: string): Observable<any> {
         return this._http.get(
             `https://api.weatherapi.com/v1/search.json?key=df9ea22d929543f6927163438222504&q=` +
                 `${input}`
         );
     }
+=======
+  getAutoComplete(input: string): Observable<any> {
+    return this._http.get(
+      `https://api.weatherapi.com/v1/search.json?key=df9ea22d929543f6927163438222504&q=` +
+        `${input}`
+    );
+  }
+  
+  getLocationParams(input: string): Observable<any> {
+    return this._http.get(
+      `https://api.weatherapi.com/v1/search.json?key=df9ea22d929543f6927163438222504&q=` +
+        `${input}`
+    )
+  }
+>>>>>>> stackblitz
 
     getLocationParams(input: string): Observable<any> {
         return this._http.get(

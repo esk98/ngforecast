@@ -8,11 +8,7 @@ import { shortWeather } from '../models/models';
 })
 export class ShortWeatherService {
     constructor(private _api: ApiService, private _store: StoreService) {}
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> stackblitz
     getShortWeather(city: string) {
         this._api
             .getWeather(city)

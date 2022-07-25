@@ -6,17 +6,15 @@
   .daily-week-weather {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      row-gap: 1vh;
 
       .day-card {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          width: 80px;
-          height: 100px;
-          padding: 0;
-          margin: 0 0 4px 0;
-
+          height: 75px;
+          margin: 0 auto;
+          flex-grow: 1;  
           * {
               text-align: center;
               margin: 0;

@@ -7,7 +7,9 @@ export interface shortWeather {
     humidity: number;
     feelslike: number;
 }
-export interface dailyWeather {}
+export interface dailyWeather {
+    
+}
 export interface todayHighlights {
     pressure: number;
     clouds: number;

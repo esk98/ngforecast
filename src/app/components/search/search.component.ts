@@ -14,7 +14,11 @@ export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
     inputFormControl = new FormControl<string>('');
     autoCompleteNames$!: Observable<string[]>;
-    constructor(public _catchInputVal: AutoComplete, public _location: LocationService, public _get: DailyweatherService,) {}
+    constructor(
+        public _catchInputVal: AutoComplete,
+        public _location: LocationService,
+        public _get: DailyweatherService
+    ) {}
     ngOnInit() {
         this.inputFormControl.valueChanges
             .pipe(
@@ -32,9 +36,5 @@ export class SearchComponent implements OnInit {
     }
     setFindCity(input: any) {
         this.newSearchEvent.emit(input);
-    }
-
-    setLocationToStore(input: any) {
-        this._location.getParams(input);
     }
 }

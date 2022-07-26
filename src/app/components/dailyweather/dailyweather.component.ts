@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 import { DailyweatherService } from '../../shared/services/dailyweather.service';
 import { StoreService } from '../../shared/services/store.service';
 import { LocationService } from '../../shared/services/location.service';
@@ -6,14 +11,9 @@ import { LocationService } from '../../shared/services/location.service';
     selector: 'app-dailyweather',
     templateUrl: './dailyweather.component.html',
     styleUrls: ['./dailyweather.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DailyweatherComponent {
-    constructor(
-        public _get: DailyweatherService,
-        public _store: StoreService,
-        public _location: LocationService
-    ) {
-        this._store.dailyWeather$.subscribe(res => (this.dailyWeather = res));
-    }
-    dailyWeather: any;
+    constructor() {}
+    @Input() dailyWeather$: any;
 }

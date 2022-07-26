@@ -1,4 +1,4 @@
 <section>
-    <app-search (newSearchEvent)="this.addValue($event)"></app-search>
-    <app-weathercard [city]="value"></app-weathercard>
+    <app-search (newSearchEvent)="this.onSearch($event)"></app-search>
+    <app-weathercard [weather$]="shortWeather$"></app-weathercard>
 </section>

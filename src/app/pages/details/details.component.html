@@ -1,12 +1,16 @@
 <section class="detail-search">
-    <app-search></app-search>
+    <app-search (newSearchEvent)="this.onSearch($event)"></app-search>
 </section>
 <section class="details-wrapper">
-    <app-weathercard></app-weathercard>
-    <app-dailyweather class="details-daily-grid"></app-dailyweather>
+    <app-weathercard
+        *ngIf="shortWeather$"
+        [weather$]="shortWeather$"></app-weathercard>
+    <app-dailyweather
+        [dailyWeather$]="dailyWeather$ | async"
+        class="details-daily-grid"></app-dailyweather>
     <div class="details-week-grid"></div>
 
-    <div class="details-today-grid">
+    <div *ngIf="todayHighlights$" class="details-today-grid">
         <div class="details-today-highlights">
             <mat-card class="details-today-card">
                 <mat-card-subtitle>vis_km </mat-card-subtitle>

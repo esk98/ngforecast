@@ -1,4 +1,4 @@
 <section>
     <app-search (newSearchEvent)="this.onSearch($event)"></app-search>
-    <app-weathercard [weather$]="shortWeather$"></app-weathercard>
+    <app-weathercard *ngIf="shortWeather$" [weather$]="shortWeather$ | async"></app-weathercard>
 </section>

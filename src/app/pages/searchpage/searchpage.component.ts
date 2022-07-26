@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { shortWeather } from '../../shared/models/models';
 import { ShortWeatherService } from '../../shared/services/shortweather.service';
 @Component({
@@ -9,16 +9,14 @@ import { ShortWeatherService } from '../../shared/services/shortweather.service'
 })
 export class SearchpageComponent {
     shortWeather$!: Observable<shortWeather>;
-    city!: string;
+    city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
     constructor(public ShortWeatherService: ShortWeatherService) {}
 
     onSearch(city: string) {
-        this.city = city;
-        if (city) {
-        this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
-        console.log(this.shortWeather$);
-        } else {
+        if (!city) {
             console.log('Input city')
-        }
+        } else {
+            this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
+        };
     }
 }

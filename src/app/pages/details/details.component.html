@@ -4,12 +4,13 @@
 <section class="details-wrapper">
     <app-weathercard
         *ngIf="shortWeather$"
-        [weather$]="shortWeather$"></app-weathercard>
+        [weather$]="shortWeather$ | async"></app-weathercard>
     <app-dailyweather *ngIf="dailyWeather$"
         [dailyWeather$]="dailyWeather$ | async"
         class="details-daily-grid"></app-dailyweather>
+        
+<!--         
     <div class="details-week-grid"></div>
-
     <div *ngIf="todayHighlights$" class="details-today-grid">
         <div class="details-today-highlights">
             <mat-card class="details-today-card">
@@ -31,5 +32,5 @@
                 <mat-card-subtitle>Properties </mat-card-subtitle>
             </mat-card>
         </div>
-    </div>
+    </div> -->
 </section>

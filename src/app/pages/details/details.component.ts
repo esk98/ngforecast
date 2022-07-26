@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../../shared/services/location.service';
-import { DailyweatherService } from '../../shared/services/dailyweather.service';
-import { ShortWeatherService } from '../../shared/services/shortweather.service';
+import { WeatherService } from '../../shared/services/weather.service';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, switchMap } from 'rxjs';
 @Component({
@@ -13,8 +12,7 @@ export class DetailsComponent implements OnInit {
     constructor(
         public route: ActivatedRoute,
         public parameters: LocationService,
-        public dailyWeather: DailyweatherService,
-        public ShortWeatherService: ShortWeatherService
+        public WeatherService: WeatherService
     ) {}
     dailyWeather$: any;
     shortWeather$: any;
@@ -28,13 +26,13 @@ export class DetailsComponent implements OnInit {
             this.city$.next(city);
             this.dailyWeather$ = this.parameters.getParams(this.city$.getValue()).pipe(
                 switchMap((params: any) => {
-                    return this.dailyWeather.getDailyWeather(
+                    return this.WeatherService.getDailyWeather(
                         params.lon,
                         params.lat
                     );
                 })
             );
-            this.shortWeather$ = this.ShortWeatherService.getShortWeather(this.city$.getValue());
+            this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
         } else (
             console.log('input city')
         )

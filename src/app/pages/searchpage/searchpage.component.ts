@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { shortWeather } from '../../shared/models/models';
-import { ShortWeatherService } from '../../shared/services/shortweather.service';
+import { WeatherService } from '../../shared/services/weather.service';
 @Component({
     selector: 'app-searchpage',
     templateUrl: './searchpage.component.html',
@@ -10,13 +10,13 @@ import { ShortWeatherService } from '../../shared/services/shortweather.service'
 export class SearchpageComponent implements OnInit{
     shortWeather$!: Observable<shortWeather>;
     city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
-    constructor(public ShortWeatherService: ShortWeatherService) {}
+    constructor(public WeatherService: WeatherService) {}
 
     ngOnInit(): void {
         this.onSearch('new york');
     }
     onSearch(city: string) {
         console.log(city)
-        this.shortWeather$ = this.ShortWeatherService.getShortWeather(this.city$.getValue());
+        this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
     }
 }

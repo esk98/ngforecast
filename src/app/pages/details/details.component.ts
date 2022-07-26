@@ -21,6 +21,7 @@ export class DetailsComponent {
     todayHighlights$: any;
 
     onSearch(city: string) {
+        if (city) {
         console.log(this.route.snapshot.paramMap.get('city'));
         this.dailyWeather$ = this.parameters.getParams(city).pipe(
             switchMap((params: any) => {
@@ -31,5 +32,8 @@ export class DetailsComponent {
             })
         );
         this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
+        } else { 
+            console.log('input city')
+        }
     }
 }

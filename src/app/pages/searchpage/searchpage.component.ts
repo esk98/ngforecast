@@ -14,7 +14,11 @@ export class SearchpageComponent {
 
     onSearch(city: string) {
         this.city = city;
+        if (city) {
         this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
         console.log(this.shortWeather$);
+        } else {
+            console.log('Input city')
+        }
     }
 }

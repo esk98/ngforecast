@@ -5,7 +5,7 @@
     <app-weathercard
         *ngIf="shortWeather$"
         [weather$]="shortWeather$"></app-weathercard>
-    <app-dailyweather
+    <app-dailyweather *ngIf="dailyWeather$"
         [dailyWeather$]="dailyWeather$ | async"
         class="details-daily-grid"></app-dailyweather>
     <div class="details-week-grid"></div>

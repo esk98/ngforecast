@@ -15,10 +15,6 @@ export class WeatherService {
 
     getShortWeather(city: string): Observable<shortWeather> {
         return this._api.getWeather(city).pipe(
-            catchError(err => {
-                console.log(err.status)
-                return throwError(() => new Error('Something bad happened; please try again later.'));
-            }),
             map((response: any) => ({
                 location: response.location.name,
                 icon: response.current.condition.icon,

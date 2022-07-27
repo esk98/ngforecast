@@ -5,7 +5,7 @@ import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ErrorHandlerService {
+export class ErrorService {
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, map, BehaviorSubject, switchMap } from 'rxjs';
+import { Observable, map, BehaviorSubject, switchMap, catchError, throwError } from 'rxjs';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';
 import { LocationService } from './location.service';
@@ -15,6 +15,10 @@ export class WeatherService {
 
     getShortWeather(city: string): Observable<shortWeather> {
         return this._api.getWeather(city).pipe(
+            catchError(err => {
+                console.log(err.status)
+                return throwError(() => new Error('Something bad happened; please try again later.'));
+            }),
             map((response: any) => ({
                 location: response.location.name,
                 icon: response.current.condition.icon,

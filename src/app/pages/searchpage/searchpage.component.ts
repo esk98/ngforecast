@@ -16,7 +16,7 @@ export class SearchpageComponent implements OnInit{
         this.onSearch('new york');
     }
     onSearch(city: string) {
-        console.log(city)
+        this.city$.next(city)
         this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
     }
 }

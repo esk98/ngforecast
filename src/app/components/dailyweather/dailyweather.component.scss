@@ -4,16 +4,18 @@
   justify-content: space-between;
 
   .daily-week-weather {
-      display: flex;
-      flex-wrap: wrap;
-      row-gap: 1vh;
+        display: grid;
+        grid-template-columns: max-content max-content max-content max-content;
+        gap: 1vh 1vw;
+        grid-auto-rows: auto auto;
+
 
       .day-card {
           display: flex;
           flex-direction: column;
           justify-content: center;
           height: 75px;
-          margin: 0 auto;
+          margin: 0 0;
           
           * {
               text-align: center;
@@ -26,4 +28,14 @@
           }
       } 
   }
+}
+
+@media screen and (max-width: 768px) {
+    .daily-week-grid {
+        .daily-week-weather {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
 }

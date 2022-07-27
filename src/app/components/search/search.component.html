@@ -4,7 +4,9 @@
             <input
                 matInput
                 [formControl]="inputFormControl"
-                [matAutocomplete]="auto" />
+                [matAutocomplete]="auto"
+                (keyup.enter)="this.setFindCity(this.inputFormControl.value)"
+                />
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option
                     *ngFor="let city of autoCompleteNames$ | async"
@@ -15,11 +17,10 @@
         </mat-form-field>
     </form>
     <button
-        type="submit"
+        type="button"
         mat-raised-button
         color="accent"
         class="search-btn"
-        (keyup.enter)="this.setFindCity(this.inputFormControl.value)"
         (click)="this.setFindCity(this.inputFormControl.value)">
         Search
     </button>

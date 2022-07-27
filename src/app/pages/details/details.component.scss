@@ -21,13 +21,12 @@
         .details-today-highlights {
             display: flex; 
             flex-wrap: wrap; 
-            row-gap: 2vh; 
-            justify-content: space-evenly;
+            gap: 1vh; 
+            justify-content: space-between;
             align-content: center;
 
 
             .details-today-card {
-                // margin: 0 auto; 
                 width: 25%; 
                 height: 100px; 
             }

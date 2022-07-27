@@ -11,7 +11,7 @@ import { AutoComplete } from '../../shared/services/autocomplete.service';
 export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
     searchForm = new FormGroup({
-        inputFormControl: new FormControl<string>('', [Validators.required]),
+        inputFormControl: new FormControl<string>('', Validators.required),
     })
     autoCompleteNames$!: Observable<string[]>;
     constructor(
@@ -29,9 +29,7 @@ export class SearchComponent implements OnInit {
             });
     }
     setFindCity(input: any) {
-        if (!this.searchForm.valid) {
-            console.log("invalid")
-        } else {
+        if (this.searchForm.valid) {
             this.newSearchEvent.emit(input);
         }
     }

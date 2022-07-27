@@ -1,11 +1,11 @@
 <section>
-    <form>
+    <form [formGroup]="searchForm">
         <mat-form-field color="accent" appearance="legacy">
             <input
                 matInput
                 [formControl]="inputFormControl"
                 [matAutocomplete]="auto"
-                (keyup.enter)="this.setFindCity(this.inputFormControl.value)"
+                (keyup.enter)="this.setFindCity(this.searchForm.value)"
                 />
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option
@@ -17,11 +17,11 @@
         </mat-form-field>
     </form>
     <button
-        type="button"
+        type="submit"
         mat-raised-button
         color="accent"
         class="search-btn"
-        (click)="this.setFindCity(this.inputFormControl.value)">
+        (click)="this.setFindCity(this.searchForm.value)">
         Search
     </button>
 </section>

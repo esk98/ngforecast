@@ -5,9 +5,8 @@
 
   .daily-week-weather {
         display: grid;
-        grid-template-columns: max-content max-content max-content max-content;
+        grid-template: auto/repeat(8, max-content);
         gap: 1vh 1vw;
-        grid-auto-rows: auto auto;
 
 
       .day-card {
@@ -30,6 +29,13 @@
   }
 }
 
+@media screen and (max-width: 1350px) {
+    .daily-week-grid {
+        .daily-week-weather {
+            grid-template: auto/repeat(4, max-content);
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .daily-week-grid {
         .daily-week-weather {

@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { shortWeather } from '../../shared/models/models';
-import { ShortWeatherService } from '../../shared/services/shortweather.service';
+import { WeatherService } from '../../shared/services/weather.service';
 @Component({
     selector: 'app-searchpage',
     templateUrl: './searchpage.component.html',
     styleUrls: ['./searchpage.component.scss'],
 })
-export class SearchpageComponent {
+export class SearchpageComponent implements OnInit{
     shortWeather$!: Observable<shortWeather>;
-    city!: string;
-    constructor(public ShortWeatherService: ShortWeatherService) {}
+    city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
+    constructor(public WeatherService: WeatherService) {}
 
+    ngOnInit(): void {
+        this.onSearch('new york');
+    }
     onSearch(city: string) {
-        this.city = city;
-        this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
-        console.log(this.shortWeather$);
+        if (city) {
+            this.city$.next(city)
+        }
+        this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
     }
 }

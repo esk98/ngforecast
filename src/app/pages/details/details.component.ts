@@ -1,35 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../../shared/services/location.service';
-import { DailyweatherService } from '../../shared/services/dailyweather.service';
-import { ShortWeatherService } from '../../shared/services/shortweather.service';
+import { WeatherService } from '../../shared/services/weather.service';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrls: ['./details.component.scss'],
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
     constructor(
         public route: ActivatedRoute,
         public parameters: LocationService,
-        public dailyWeather: DailyweatherService,
-        public ShortWeatherService: ShortWeatherService
+        public WeatherService: WeatherService
     ) {}
     dailyWeather$: any;
     shortWeather$: any;
     todayHighlights$: any;
-
+    city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
+    ngOnInit(): void {
+        this.onSearch('london');
+    }
     onSearch(city: string) {
-        console.log(this.route.snapshot.paramMap.get('city'));
-        this.dailyWeather$ = this.parameters.getParams(city).pipe(
-            switchMap((params: any) => {
-                return this.dailyWeather.getDailyWeather(
-                    params.lon,
-                    params.lat
-                );
-            })
-        );
-        this.shortWeather$ = this.ShortWeatherService.getShortWeather(city);
+        if (city !== this.city$.getValue()) {
+            this.city$.next(city);
+            this.dailyWeather$ = this.WeatherService.getDailyWeather(this.city$.getValue());
+            this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
+        } else (
+            console.log('input city')
+        )
     }
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, Observable } from 'rxjs';
 import { AutoComplete } from '../../shared/services/autocomplete.service';
-import { LocationService } from '../../shared/services/location.service';
-import { DailyweatherService } from '../../shared/services/dailyweather.service';
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
@@ -12,20 +10,16 @@ import { DailyweatherService } from '../../shared/services/dailyweather.service'
 })
 export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
-    inputFormControl = new FormControl<string>('');
+    searchForm = new FormGroup({
+        inputFormControl: new FormControl<string>('', Validators.required),
+    })
     autoCompleteNames$!: Observable<string[]>;
     constructor(
         public _catchInputVal: AutoComplete,
-        public _location: LocationService,
-        public _get: DailyweatherService
     ) {}
     ngOnInit() {
-        this.inputFormControl.valueChanges
+        this.searchForm.controls.inputFormControl.valueChanges
             .pipe(
-                filter(
-                    (value: string | null) =>
-                        value !== null && value?.length > 2
-                ),
                 distinctUntilChanged(),
                 debounceTime(500)
             )
@@ -35,6 +29,8 @@ export class SearchComponent implements OnInit {
             });
     }
     setFindCity(input: any) {
-        this.newSearchEvent.emit(input);
+        if (this.searchForm.valid) {
+            this.newSearchEvent.emit(input);
+        }
     }
 }

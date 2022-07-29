@@ -24,10 +24,12 @@ export class DetailsComponent implements OnInit {
     onSearch(city: string) {
         if (city !== this.city$.getValue()) {
             this.city$.next(city);
-            this.dailyWeather$ = this.WeatherService.getDailyWeather(this.city$.getValue());
-            this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
-        } else (
-            console.log('input city')
-        )
+            this.dailyWeather$ = this.WeatherService.getDailyWeather(
+                this.city$.getValue()
+            );
+            this.shortWeather$ = this.WeatherService.getShortWeather(
+                this.city$.getValue()
+            );
+        } else console.log('input city');
     }
 }

@@ -7,7 +7,7 @@ import { WeatherService } from '../../shared/services/weather.service';
     templateUrl: './searchpage.component.html',
     styleUrls: ['./searchpage.component.scss'],
 })
-export class SearchpageComponent implements OnInit{
+export class SearchpageComponent implements OnInit {
     shortWeather$!: Observable<shortWeather>;
     city$: BehaviorSubject<string> = new BehaviorSubject<string>('London');
     constructor(public WeatherService: WeatherService) {}
@@ -17,8 +17,10 @@ export class SearchpageComponent implements OnInit{
     }
     onSearch(city: string) {
         if (city) {
-            this.city$.next(city)
+            this.city$.next(city);
         }
-        this.shortWeather$ = this.WeatherService.getShortWeather(this.city$.getValue());
+        this.shortWeather$ = this.WeatherService.getShortWeather(
+            this.city$.getValue()
+        );
     }
 }

@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import {
     Observable,
     map,
-    BehaviorSubject,
-    switchMap,
-    catchError,
-    throwError,
+    switchMap
 } from 'rxjs';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';

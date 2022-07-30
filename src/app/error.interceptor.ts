@@ -8,11 +8,11 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { ErrorService } from './shared/services/error.service';
+import { NotificationService } from './shared/services/notification.service';
 @Injectable()
 export class ErrorIntercept implements HttpInterceptor {
 
-  constructor(private errorService: ErrorService){}
+  constructor(public notification: NotificationService){}
 
   intercept(
       request: HttpRequest<any>,
@@ -20,8 +20,24 @@ export class ErrorIntercept implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
       return next.handle(request)
           .pipe(
-              retry(1),
-              catchError(this.errorService.handleError)
-          )
+            retry(1),
+            catchError((error: HttpErrorResponse) => {
+                let errorMessage = '';
+                if (error.error instanceof ErrorEvent) {
+                    // client-side error
+                    errorMessage = `Error: ${error.error.message}`;
+                }
+                if (error.status == 401) {
+                    // refresh token
+                    console.error(error.message)
+                }
+                else {
+                    // server-side error
+                    errorMessage = `Error Status: ${error.status}\nMessage: ${error.error.error.message}`;
+                }
+                this.notification.showError(errorMessage);
+                return throwError(() => new Error(errorMessage));
+      })
+    )
   }
 }

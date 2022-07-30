@@ -1,11 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
 
-  constructor(private zone: NgZone, private snackBar: MatSnackBar) { }
+  constructor(public zone: NgZone, public snackBar: MatSnackBar) { }
 
   showSucces(message: string) {
     this.zone.run(() => {

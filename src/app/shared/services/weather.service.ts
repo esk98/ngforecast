@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {
     Observable,
     map,
-    switchMap
+    switchMap,
+    tap
 } from 'rxjs';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';
@@ -14,7 +15,6 @@ export class WeatherService {
     constructor(
         private _api: ApiService,
         private params: LocationService,
-        private _store: StoreService
     ) {}
 
     getShortWeather(city: string): Observable<shortWeather> {

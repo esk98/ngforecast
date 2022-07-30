@@ -6,14 +6,14 @@ import { NotificationService } from './notification.service';
     providedIn: 'root',
 })
 export class ErrorService {
-    constructor(public notification: NotificationService) {}
+    constructor(public NotificationService: NotificationService) {}
 
     public handleError(error: HttpErrorResponse) {
         if (error.status === 0) {
             console.error('An error occurred:', error.error);
         } else {
             console.error(error)
-            this.notification.showError(
+            this.NotificationService.showError(
                 `Backend returned code ${error.status}, body was: ${error.error.error.message}`
             );
         }

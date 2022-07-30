@@ -7,13 +7,14 @@
         display: grid;
         grid-template: auto/repeat(8, max-content);
         gap: 1vh 1vw;
-
+        
 
       .day-card {
           display: flex;
           flex-direction: column;
           justify-content: center;
           height: 75px;
+          width: 45px;
           margin: 0 0;
           
           * {
@@ -29,7 +30,7 @@
   }
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1023px) {
     .daily-week-grid {
         .daily-week-weather {
             grid-template: auto/repeat(4, max-content);

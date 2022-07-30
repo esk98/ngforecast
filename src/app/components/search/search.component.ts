@@ -12,17 +12,12 @@ export class SearchComponent implements OnInit {
     @Output() newSearchEvent = new EventEmitter<string>();
     searchForm = new FormGroup({
         inputFormControl: new FormControl<string>('', Validators.required),
-    })
+    });
     autoCompleteNames$!: Observable<string[]>;
-    constructor(
-        public _catchInputVal: AutoComplete,
-    ) {}
+    constructor(public _catchInputVal: AutoComplete) {}
     ngOnInit() {
         this.searchForm.controls.inputFormControl.valueChanges
-            .pipe(
-                distinctUntilChanged(),
-                debounceTime(500)
-            )
+            .pipe(distinctUntilChanged(), debounceTime(500))
             .subscribe((value: any) => {
                 this.autoCompleteNames$ =
                     this._catchInputVal.getAutoCompleteArray(value);

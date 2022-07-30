@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable, map, BehaviorSubject, switchMap, catchError, throwError } from 'rxjs';
+import {
+    Observable,
+    map,
+    BehaviorSubject,
+    switchMap,
+    catchError,
+    throwError,
+} from 'rxjs';
 import { ApiService } from './api.service';
 import { StoreService } from './store.service';
 import { LocationService } from './location.service';

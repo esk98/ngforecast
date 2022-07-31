@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-today-highlights',
   templateUrl: './today-highlights.component.html',
-  styleUrls: ['./today-highlights.component.scss']
+  styleUrls: ['./today-highlights.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodayHighlightsComponent implements OnInit {
+export class TodayHighlightsComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() todayHighlights$: any;
 
 }

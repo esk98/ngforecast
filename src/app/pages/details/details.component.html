@@ -4,8 +4,11 @@
 <section class="details-wrapper">
     <app-weathercard
         *ngIf="shortWeather$ | async"
-        [weather$]="shortWeather$ | async"></app-weathercard>
-    <app-today-highlights></app-today-highlights>
+        [weather$]="shortWeather$ | async"
+    >
+    </app-weathercard>
+    <app-today-highlights>
+    </app-today-highlights>
     <app-dailyweather
         *ngIf="dailyWeather$ | async"
         [dailyWeather$]="dailyWeather$ | async"

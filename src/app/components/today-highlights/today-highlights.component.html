@@ -1,20 +1,59 @@
 <div class="today-highlights">
     <mat-card class="today-card">
-        <mat-card-subtitle>vis_km </mat-card-subtitle>
+        <mat-card-subtitle
+            >todayHighlights$.current.dew_point</mat-card-subtitle
+        >
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>gust_kph </mat-card-subtitle>
+        <mat-card-subtitle>todayHighlights$.current.pressure</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>wind_degree wind_dir</mat-card-subtitle>
+        <mat-card-subtitle>todayHighlights$.current.wind_deg</mat-card-subtitle>
+        <mat-card-subtitle>
+            todayHighlights$.current.wind_speed</mat-card-subtitle
+        >
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>pressure_mb</mat-card-subtitle>
+        <mat-card-subtitle> todayHighlights$.current.sunrise </mat-card-subtitle>
+        <mat-card-subtitle> todayHighlights$.current.sunset</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>Properties </mat-card-subtitle>
+        <mat-card-subtitle>todayHighlights$.current.uvi </mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>Properties </mat-card-subtitle>
+        <mat-card-subtitle
+            >todayHighlights$.current.visibility
+        </mat-card-subtitle>
     </mat-card>
 </div>
+<!-- 
+clouds: 75
+
+dew_point: 16.85
+
+dt: 1659257070
+
+feels_like: 21.62
+
+humidity: 75
+
+pressure: 1014
+
+sunrise: 1659241339
+
+sunset: 1659297071
+
+temp: 21.46
+
+uvi: 0.69
+
+visibility: 10000
+
+weather: Array[1]
+
+wind_deg: 240
+
+wind_speed: 7.2
+
+__proto__: Object
+ -->

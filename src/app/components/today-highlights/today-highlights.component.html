@@ -14,8 +14,8 @@
         >
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>{{ todayHighlights$?.sunrise }} </mat-card-subtitle>
-        <mat-card-subtitle>{{ todayHighlights$?.sunset }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.sunrise | date: 'MMM d, h:mm a' }} </mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.sunset | date: 'MMM d, h:mm a' }}</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
         <mat-card-subtitle>{{ todayHighlights$?.uvi }}</mat-card-subtitle>

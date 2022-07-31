@@ -51,7 +51,7 @@ export class WeatherService {
         return this.params.getParams(city).pipe(
             switchMap((params: any) => {
                 return this._api.getTodayHighlightsWeather(params.lon, params.lat).pipe(
-                    map((response: any) => {
+                    map((response: any) =>
                         ({
                             devPoint: response.current.dew_point,
                             pressure: response.current.pressure,
@@ -62,7 +62,7 @@ export class WeatherService {
                             uvi: response.current.uvi,
                             visibility: response.current.visibility,
                         })
-                    })
+                    )
                 )
             })
         )

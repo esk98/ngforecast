@@ -1,7 +1,6 @@
 .daily-week-grid {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   .daily-week-weather {
         display: grid;
@@ -30,13 +29,6 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
-    .daily-week-grid {
-        .daily-week-weather {
-            grid-template: auto/repeat(4, max-content);
-        }
-    }
-}
 @media screen and (max-width: 768px) {
     .daily-week-grid {
         .daily-week-weather {

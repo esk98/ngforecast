@@ -1,0 +1,20 @@
+<div class="today-highlights">
+  <mat-card class="today-card">
+      <mat-card-subtitle>vis_km </mat-card-subtitle>
+  </mat-card>
+  <mat-card class="today-card">
+      <mat-card-subtitle>gust_kph </mat-card-subtitle>
+  </mat-card>
+  <mat-card class="today-card">
+      <mat-card-subtitle>wind_degree wind_dir</mat-card-subtitle>
+  </mat-card>
+  <mat-card class="today-card">
+      <mat-card-subtitle>pressure_mb</mat-card-subtitle>
+  </mat-card>
+  <mat-card class="today-card">
+      <mat-card-subtitle>Properties </mat-card-subtitle>
+  </mat-card>
+  <mat-card class="today-card">
+      <mat-card-subtitle>Properties </mat-card-subtitle>
+  </mat-card>
+</div>

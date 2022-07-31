@@ -1,0 +1,21 @@
+.today-highlights {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1vh; 
+    justify-content: space-between;
+    align-content: center;
+
+
+    .today-card {
+        width: 25%; 
+        height: 100px; 
+    }
+}
+@media screen and (max-width: 768px) {
+    .today-highlights {
+        .today-card {
+            width: auto;
+            flex-grow: 1;
+        }
+    }
+}

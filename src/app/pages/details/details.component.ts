@@ -30,6 +30,9 @@ export class DetailsComponent implements OnInit {
             this.shortWeather$ = this.WeatherService.getShortWeather(
                 this.city$.getValue()
             );
+            this.todayHighlights$ = this.WeatherService.getTodayHighlights(
+                this.city$.getValue()
+            ).subscribe(v => console.log(v));
         } else console.log('input city');
     }
 }

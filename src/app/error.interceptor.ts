@@ -25,6 +25,7 @@ export class ErrorIntercept implements HttpInterceptor {
                 let errorMessage = '';
                 if (error.error instanceof ErrorEvent) {
                     // client-side error
+                    console.error(error)
                     errorMessage = `Error: ${error.error.message}`;
                 }
                 if (error.status == 401) {
@@ -33,10 +34,11 @@ export class ErrorIntercept implements HttpInterceptor {
                 }
                 else {
                     // server-side error
+                    console.error(error)
                     errorMessage = `Error Status: ${error.status}\nMessage: ${error.error.error.message}`;
                 }
                 this.notification.showError(errorMessage);
-                return throwError(() => new Error(errorMessage));
+                return throwError(() => new Error(error.message));
       })
     )
   }

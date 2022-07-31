@@ -46,4 +46,12 @@ export class WeatherService {
             })
         );
     }
+
+    getTodayHighlights(city: string): Observable<any> {
+        return this.params.getParams(city).pipe(
+            switchMap((params: any) => {
+                return this._api.getTodayHighlightsWeather(params.lon, params.lat)
+            })
+        )
+    }
 }

@@ -5,7 +5,7 @@
     <app-weathercard
         *ngIf="shortWeather$ | async"
         [weather$]="shortWeather$ | async"></app-weathercard>
-    <!-- <div class="details-today-grid">
+    <div class="details-today-grid">
         <div class="details-today-highlights">
             <mat-card class="details-today-card">
                 <mat-card-subtitle>vis_km </mat-card-subtitle>
@@ -26,9 +26,11 @@
                 <mat-card-subtitle>Properties </mat-card-subtitle>
             </mat-card>
         </div>
-    </div> -->
-    <div class="details-week-grid"></div>
+    </div>
+    <app-dailyweather
+        *ngIf="dailyWeather$ | async"
+        [dailyWeather$]="dailyWeather$ | async"
+        class="details-week-grid">
+    </app-dailyweather>
+    <!-- <div class="details-week-grid"></div> -->
 </section>
-<app-dailyweather
-*ngIf="dailyWeather$ | async"
-[dailyWeather$]="dailyWeather$ | async"></app-dailyweather>

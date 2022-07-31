@@ -32,7 +32,7 @@ export class DetailsComponent implements OnInit {
             );
             this.todayHighlights$ = this.WeatherService.getTodayHighlights(
                 this.city$.getValue()
-            ).subscribe(v => console.log(v));
+            )
         } else console.log('input city');
     }
 }

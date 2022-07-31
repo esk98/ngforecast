@@ -7,7 +7,10 @@
         [weather$]="shortWeather$ | async"
     >
     </app-weathercard>
-    <app-today-highlights>
+    <app-today-highlights
+    *ngIf="todayHighlights$ | async"
+    [todayHighlights$]="todayHighlights$ | async"
+    >
     </app-today-highlights>
     <app-dailyweather
         *ngIf="dailyWeather$ | async"

@@ -1,28 +1,28 @@
 <div class="today-highlights">
     <mat-card class="today-card">
         <mat-card-subtitle
-            >todayHighlights$.current.dew_point</mat-card-subtitle
+            >{{ todayHighlights$?.devPoint }}</mat-card-subtitle
         >
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>todayHighlights$.current.pressure</mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.pressure }}</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>todayHighlights$.current.wind_deg</mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.windDeg }} </mat-card-subtitle>
         <mat-card-subtitle>
-            todayHighlights$.current.wind_speed</mat-card-subtitle
+            {{ todayHighlights$?.windSpeed }}</mat-card-subtitle
         >
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle> todayHighlights$.current.sunrise </mat-card-subtitle>
-        <mat-card-subtitle> todayHighlights$.current.sunset</mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.sunrise }} </mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.sunset }}</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
-        <mat-card-subtitle>todayHighlights$.current.uvi </mat-card-subtitle>
+        <mat-card-subtitle>{{ todayHighlights$?.uvi }}</mat-card-subtitle>
     </mat-card>
     <mat-card class="today-card">
         <mat-card-subtitle
-            >todayHighlights$.current.visibility
+            >{{ todayHighlights$?.visibility }}
         </mat-card-subtitle>
     </mat-card>
 </div>

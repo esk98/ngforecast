@@ -50,7 +50,20 @@ export class WeatherService {
     getTodayHighlights(city: string): Observable<any> {
         return this.params.getParams(city).pipe(
             switchMap((params: any) => {
-                return this._api.getTodayHighlightsWeather(params.lon, params.lat)
+                return this._api.getTodayHighlightsWeather(params.lon, params.lat).pipe(
+                    map((response: any) => {
+                        ({
+                            devPoint: response.current.dew_point,
+                            pressure: response.current.pressure,
+                            windDeg: response.current.wind_deg,
+                            windSpeed: response.current.wind_speed,
+                            sunrise: new Date(response.current.sunrise * 1000),
+                            sunset: new Date(response.current.sunset * 1000),
+                            uvi: response.current.uvi,
+                            visibility: response.current.visibility,
+                        })
+                    })
+                )
             })
         )
     }

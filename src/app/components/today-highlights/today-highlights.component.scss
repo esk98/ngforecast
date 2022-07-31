@@ -8,7 +8,10 @@
 
     .today-card {
         width: 25%; 
-        height: 100px; 
+        height: 100px;
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between;
     }
 }
 @media screen and (max-width: 768px) {

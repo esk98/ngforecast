@@ -15,7 +15,7 @@ export class NotificationService {
 
   showError(message: string) {
     this.zone.run(() => {
-      this.snackBar.open(message, 'X', {panelClass: ['error']});
+      this.snackBar.open(message, 'Close', {duration: 5000});
     });
   }
 
